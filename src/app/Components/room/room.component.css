@@ -1,0 +1,17 @@
+   .SchoolPlanDiv{
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .tableContainer{
+    justify-content: center;
+    display: flex;
+    height: max-content;
+  }

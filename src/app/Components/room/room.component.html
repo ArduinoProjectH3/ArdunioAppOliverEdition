@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        <div class="SchoolPlanDiv">
+            <map name="image-map">
+                <area target="" alt="" title="B16" href="" coords="173,344,146,345,150,365,174,367" shape="poly"
+                    (click)="GetRoomData('B16')">
+            </map>
+            <img class="schoolmap" src="assets/skoleplan.PNG" usemap="#image-map">
+        </div>
+        <div class="tableContainer">
+            <div class="TableDiv">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>room name :</td>
+                            <td><span>{{roomData.Rr_RoomName}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>creation time :</td>
+                            <td><span>{{roomData.Rr_Cts}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>head height temperature :</td>
+                            <td><span>{{roomData.Tr_Head.Tr_Value}}°C</span></td>
+                        </tr>
+                        <tr>
+                            <td>Humidity :</td>
+                            <td><span>{{roomData.Hr.Hr_Value}}%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Feet height temperature :</td>
+                            <td><span>{{roomData.Tr_Feet.Tr_Value}}°C</span></td>
+                        </tr>
+                        <tr>
+                            <td>Light :</td>
+                            <td><span>{{roomData.Lr.Lr_Value}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sound :</td>
+                            <td><span>{{roomData.Sr.Sr_Value}}</span></td>
+                        </tr>
+                        <tr>
+                            <td>Curtains :</td>
+                            <td><span>{{roomData.Cr.Cr_Value}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.login_form{
+    width: 50vh;
+    width: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.login_center_group{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_center_group label{
+    justify-content: center;
+    display: flex;
+}
+
+.alert{
+    margin-bottom: -1rem;
+}
