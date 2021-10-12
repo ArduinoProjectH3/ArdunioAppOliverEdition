@@ -17,7 +17,8 @@ export class RoomComponent implements OnInit {
   }
 
   async getRoom(roomName : string){
-    this.room.GetRoomData(roomName)
+    this.room.GetRoomData(roomName,localStorage.getItem('tokenstring'))
+
     .subscribe(
       data => {
       this.roomData = data;
@@ -26,7 +27,7 @@ export class RoomComponent implements OnInit {
     }
     public GetRoomData(roomName:string) {
       console.log("calling GetRoomData with " + roomName)
-    
+
       this.getRoom(roomName);
     }
   }

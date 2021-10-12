@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +7,15 @@ import { HttpClient} from '@angular/common/http';
 export class RoomService {
   constructor(private http: HttpClient){}
 
-  GetRoomData(roomName : string){
+  GetRoomData(roomName : string,apitoken : any){
+    let headers = new HttpHeaders();
+    headers=headers.append('Authorization',JSON.parse(apitoken)['key']);
 
     let url = "http://192.168.1.71:5001/api/angular/GetRoom?roomName=" + roomName;
 
-    return this.http.get<RoomReading>(url);
+    return this.http.get<RoomReading>(url,{
+      headers: headers
+    });
 
   }
 }

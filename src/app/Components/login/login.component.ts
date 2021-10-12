@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
         console.log(data);
   
         if (data.token != null) {
-        this.cookieService.set('token',data['token'] + '')
+        var tokenstring ={name:"token", key:data['token']};
+        localStorage.setItem('tokenstring',JSON.stringify(tokenstring));
+        // this.cookieService.set('token',data['token'] + '')
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.router.navigate(['room']);
