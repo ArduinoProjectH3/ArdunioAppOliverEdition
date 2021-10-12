@@ -17,7 +17,7 @@ export class RoomComponent implements OnInit {
   }
 
   async getRoom(roomName : string){
-    this.room.GetRoomData(roomName,localStorage.getItem('tokenstring'))
+    this.room.GetRoomData(roomName,localStorage.getItem('tokenstring')) // Sends the room number and the api token saved in localstorage to our method that returns roomdata
 
     .subscribe(
       data => {
