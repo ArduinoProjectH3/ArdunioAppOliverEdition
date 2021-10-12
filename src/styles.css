@@ -23,3 +23,9 @@
 .alert{
     margin-bottom: -1rem;
 }
+
+body{
+   background-color: #4E4A59;
+    height: 100%;
+    background-repeat: no-repeat;
+  }

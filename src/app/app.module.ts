@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './Components/register/register.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { APP_BASE_HREF } from '@angular/common';
     RoomComponent,
     LoginComponent,
     RegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
