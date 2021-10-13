@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <div class="col-md-12 login_form">
     <div class="card card-container">
-        <!-- <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" /> -->
         <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
             <div class="form-group login_center_group">
                 <label for="username">Username</label>
@@ -15,10 +14,9 @@
                 <input type="password" class="from-control" name="password" [(ngModel)]="form.password" required
                     minlength="6" #password="ngModel">
                 <div>
-                    <div (click)="nav('register')" style="float: right; font-size: 12px; text-decoration: underline; color:#007bff; cursor: pointer;">Register</div>
                     <div class="from-group">
                         <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed"> Login failed
-                                {{errorMessage}}
+                            {{errorMessage}}
                         </div>
                     </div>
                     <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
@@ -27,6 +25,7 @@
                     </div>
                 </div>
             </div>
+            <div (click)="Nav('register')" style="float: right; font-size: 12px; text-decoration: underline; color:#007bff; cursor: pointer;">Register</div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block">
                     Login

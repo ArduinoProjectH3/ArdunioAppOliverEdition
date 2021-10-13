@@ -22,7 +22,7 @@ export class RoomService {
 
 export class RoomReading {
   constructor( 
- public Rr_RoomName: string,
+  public Rr_RoomName: string,
   public Rr_Cts: Date,
   public Lr: LightReading,
   public Tr_Head: HeadTemperatureReading,

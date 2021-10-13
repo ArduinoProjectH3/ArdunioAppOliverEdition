@@ -31,23 +31,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit(): void {
+  onSubmit(): void {//Submits the login form
     const {username, password} = this.form;
     this.authService.Login(username, password).subscribe(
       data => {
         console.log(data);
   
-        if (data.token != null) {
+        if (data.token != null) {//redirects the user to the main page if login is valid
         var tokenstring ={name:"token", key:data['token']};
-        localStorage.setItem('tokenstring',JSON.stringify(tokenstring));
-        // this.cookieService.set('token',data['token'] + '')
+        localStorage.setItem('tokenstring',JSON.stringify(tokenstring));// Saves the apitoken in localStorage
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        // this.router.navigate(['room']);
         this.navigator.Navigator('room');
         }
-        else{
-          // this.router.navigate(['login']);
+        else{// Sends user back to login if password is invalid
           this.navigator.Navigator('login');
         }
       },
@@ -61,5 +58,5 @@ export class LoginComponent implements OnInit {
   ReloadPage(): void {
     window.location.reload();
   }
-  nav = (page: string) => this.navigator.Navigator(page);
+  Nav = (page: string) => this.navigator.Navigator(page);//Now we can navigate to the pages with our navigatorService
 }

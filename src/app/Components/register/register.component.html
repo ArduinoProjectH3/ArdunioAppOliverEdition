@@ -31,13 +31,14 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
                     minlength="6" #password="ngModel" />
-                <div class="alert-danger" *ngIf="password.errors && f.submitted">
-                    <div *ngIf="password.errors.required">Password is required</div>
-                    <div *ngIf="password.errors.minlength">
-                        Password must be at least 6 characters
+                    <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">
+                            Password must be at least 6 characters
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div (click)="Nav('login')" style="float: right; font-size: 12px; text-decoration: underline; color:#007bff; cursor: pointer;">Login</div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block">Sign Up</button>
             </div>
