@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { TokenStorageService } from 'src/app/Services/token-storage.service';
-import { Router } from '@angular/router';
 import { NavigatorService } from 'src/app/Services/navigator.service';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
   errorMessage ='';
   roles: string [] =  [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private cookieService : CookieService, private navigator: NavigatorService) {}
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private cookieService : CookieService, private navigator: NavigatorService) {}
 
   
 
@@ -44,11 +43,12 @@ export class LoginComponent implements OnInit {
         // this.cookieService.set('token',data['token'] + '')
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.router.navigate(['room']);
-          
+        // this.router.navigate(['room']);
+        this.navigator.Navigator('room');
         }
         else{
-          this.router.navigate(['login']);
+          // this.router.navigate(['login']);
+          this.navigator.Navigator('login');
         }
       },
       err => {
@@ -61,5 +61,5 @@ export class LoginComponent implements OnInit {
   ReloadPage(): void {
     window.location.reload();
   }
-  
+  nav = (page: string) => this.navigator.Navigator(page);
 }
