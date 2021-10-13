@@ -1,5 +1,6 @@
-import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { AuthService } from 'src/app/Services/auth.service';
 import { RoomReading, RoomService } from 'src/app/Services/room.service';
 
 @Component({
@@ -11,9 +12,9 @@ export class RoomComponent implements OnInit {
    public roomData: RoomReading = {} as RoomReading
   errorMessage : string;
 
-  constructor(private room: RoomService,private router: Router) { }
+  constructor(private room: RoomService,private router: Router, private authService: AuthService) { }
   ngOnInit(): void {
-    this.CheckIfLoggedIn()
+    this.authService.CheckIfLoginIsValid();
     this.getRoom("B16");
   }
 
@@ -31,12 +32,7 @@ export class RoomComponent implements OnInit {
 
       this.getRoom(roomName);
     }
-    private CheckIfLoggedIn(){
-      if(localStorage.getItem('tokenstring') == null){
-        console.log('true')
-        this.router.navigate(['login'])
-      }
-    }
+    
   }
 
   

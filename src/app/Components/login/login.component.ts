@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Services/auth.service';
 import { TokenStorageService } from 'src/app/Services/token-storage.service';
 import { Router } from '@angular/router';
+import { NavigatorService } from 'src/app/Services/navigator.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   errorMessage ='';
   roles: string [] =  [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private cookieService : CookieService) {}
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private cookieService : CookieService, private navigator: NavigatorService) {}
 
   
 
@@ -60,7 +61,5 @@ export class LoginComponent implements OnInit {
   ReloadPage(): void {
     window.location.reload();
   }
-  gotoregister(){
-    this.router.navigate(['register'])
-  }
+  
 }
