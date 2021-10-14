@@ -16,4 +16,13 @@
     height: max-content;
   }
 
+  .tablediv tr{
+    color: white;
+    font-weight: bold;
+  }
+
+  .tablediv tr:nth-child(2n){
+  background-color:rgb(112, 111, 111);
+  }
+
   

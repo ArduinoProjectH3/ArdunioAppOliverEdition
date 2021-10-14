@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   
 
   ngOnInit(): void {
-    if (this.tokenStorage.GetToken()) {
+    if (this.tokenStorage.GetToken()) {// If we can return a token from the user the user is logged in
       this.isLoggedIn = true;
     }
   }
@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
         console.log(data);
   
         if (data.token != null) {//redirects the user to the main page if login is valid
-        var tokenstring ={name:"token", key:data['token']};
-        localStorage.setItem('tokenstring',JSON.stringify(tokenstring));// Saves the apitoken in localStorage
+        localStorage.setItem('token',data['token']);// Saves the apitoken in localStorage
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.navigator.Navigator('room');

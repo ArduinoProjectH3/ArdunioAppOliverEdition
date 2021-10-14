@@ -7,16 +7,22 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 export class RoomService {
   constructor(private http: HttpClient){}
 
-  GetRoomData(roomName : string,apitoken : any){
-    let headers = new HttpHeaders()
-    headers=headers.append('Authorization',JSON.parse(apitoken)['key'])//Add a header to the header array 
+  // GetRoomData(roomName : string,apitoken : any){
+  //   let headers = new HttpHeaders()
+  //   headers=headers.append('Authorization',JSON.parse(apitoken)['key'])//Add a header to the header array 
 
+  //   let url = "http://192.168.1.71:5001/api/angular/GetRoom?roomName=" + roomName;
+
+  //   return this.http.get<RoomReading>(url,{// Make a http call to our api with headers
+  //     headers: headers
+  //   });
+
+  // }
+  GetRoomData(roomName : string){
+    console.log("calling getroom");
+    let token : any = localStorage.getItem('token');
     let url = "http://192.168.1.71:5001/api/angular/GetRoom?roomName=" + roomName;
-
-    return this.http.get<RoomReading>(url,{// Make a http call to our api with headers
-      headers: headers
-    });
-
+    return this.http.get<RoomReading>(url,{headers: {'Authorization' :token}});
   }
 }
 

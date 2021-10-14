@@ -17,10 +17,8 @@ export class RoomdataService {
     console.log("i am here");
     // let url = "http://192.168.1.71:5001/api/angular/GetRoom?roomName=" + roomName;
     let url = "http://127.0.0.1:5000/api/angular/GetRoom/" + roomName;
-    console.log("api");
-    console.log(this.http.get<string>(url),httpOptions);
-    console.log("api");
-    return this.http.get<any>(url);
+    console.log(this.http.get(url));
+    return this.http.get(url);
 
   }
 }
